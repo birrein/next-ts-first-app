@@ -9,7 +9,7 @@ export const siteTitle = 'Next.js Sample Website';
 
 type Props = {
   children: React.ReactNode;
-  home: boolean;
+  home?: boolean;
 };
 
 export default function Layout({ children, home }: Props) {
