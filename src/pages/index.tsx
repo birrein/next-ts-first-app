@@ -38,6 +38,24 @@ const Home: NextPage<Props> = ({ allPostsData }) => {
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+        <ul className={utilStyles.list}>
+          <li className={utilStyles.listItem}>
+            <Link href="page-with-params?title=Título de la página&param1=foo&param2=bar">
+              <a>Link prueba con parámetros</a>
+            </Link>
+          </li>
+          <li className={utilStyles.listItem}>
+            <Link href="another-page-with-params/param1/param2">
+              <a>Link prueba con parámetros</a>
+            </Link>
+          </li>
+          <li className={utilStyles.listItem}>
+            <Link href="catch-all-routes/param1/param2">
+              <a>Link prueba con parámetros (catch all routes)</a>
+            </Link>
+          </li>
+        </ul>
+
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
