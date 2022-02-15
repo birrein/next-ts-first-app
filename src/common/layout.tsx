@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from './layout.module.css';
-import utilStyles from '../pages/utils.module.css';
 import Link from 'next/link';
+import styles from './layout.module.css';
+import utilStyles from '@common/utils/utils.module.css';
 
 const name = 'Manuel Marín';
 export const siteTitle = 'Next.js Sample Website';
@@ -69,7 +69,7 @@ export default function Layout({ children, home }: Props) {
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">
-            <a>← Back to home</a>
+            <a>← Regresar al home</a>
           </Link>
         </div>
       )}

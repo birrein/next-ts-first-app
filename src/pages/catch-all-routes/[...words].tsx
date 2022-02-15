@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import Layout from '../../components/layout';
-import utilStyles from '../utils.module.css';
+import Layout from '@common/layout';
+import utilStyles from '@common/utils/utils.module.css';
 
 const PageWithParams = () => {
   const router = useRouter();

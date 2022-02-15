@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import Layout from '../../components/layout';
-import { getAllPostIds, getPostData } from '../../lib/posts';
-import Date from '../../components/date';
-import utilStyles from '../utils.module.css';
+import Layout from '@common/layout';
+import { getAllPostIds, getPostData } from '@common/utils/posts';
+import Date from '@common/utils/date';
+import utilStyles from '@common/utils/utils.module.css';
 import { GetStaticProps, GetStaticPaths } from 'next';
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
