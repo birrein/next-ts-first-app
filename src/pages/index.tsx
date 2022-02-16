@@ -1,10 +1,10 @@
 import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 import Layout, { siteTitle } from '@common/layout';
 import utilStyles from '@common/utils/utils.module.css';
 import { getSortedPostsData } from '@common/utils/posts';
 import Date from '@common/utils/date';
+import Link from '@common/components/Link';
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
@@ -40,19 +40,31 @@ const Home: NextPage<Props> = ({ allPostsData }) => {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <ul className={utilStyles.list}>
           <li className={utilStyles.listItem}>
-            <Link href="page-with-params?title=Título de la página&param1=foo&param2=bar">
-              <a>Link prueba con parámetros</a>
+            <Link
+              href={{
+                pathname: '/page-with-params',
+                query: {
+                  title: 'El título',
+                  param1: 'El primer parámetro',
+                  param2: 'El segundo parámetro',
+                },
+              }}
+            >
+              Link prueba con parámetros
             </Link>
           </li>
           <li className={utilStyles.listItem}>
-            <Link href="another-page-with-params/param1/param2">
-              <a>Link prueba con parámetros</a>
+            <Link href="/another-page-with-params/param1/param2">
+              Link parámetros en url (semántico)
             </Link>
           </li>
           <li className={utilStyles.listItem}>
-            <Link href="catch-all-routes/param1/param2">
-              <a>Link prueba con parámetros (catch all routes)</a>
+            <Link href="/catch-all-routes/param1/param2">
+              Link prueba con parámetros (catch all routes)
             </Link>
+          </li>
+          <li className={utilStyles.listItem}>
+            <Link href="/muindex">Prueba MUI</Link>
           </li>
         </ul>
 
@@ -60,9 +72,7 @@ const Home: NextPage<Props> = ({ allPostsData }) => {
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
+              <Link href={`/posts/${id}`}>{title}</Link>
               <br />
               <small className={utilStyles.lightText}>
                 <Date dateString={date} />

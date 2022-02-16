@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@common/components/Link';
 import styles from './layout.module.css';
 import utilStyles from '@common/utils/utils.module.css';
 
@@ -46,20 +46,18 @@ export default function Layout({ children, home }: Props) {
         ) : (
           <>
             <Link href="/">
-              <a>
-                <Image
-                  priority
-                  src="/images/profile.jpg"
-                  className={utilStyles.borderCircle}
-                  height={108}
-                  width={108}
-                  alt={name}
-                />
-              </a>
+              <Image
+                priority
+                src="/images/profile.jpg"
+                className={utilStyles.borderCircle}
+                height={108}
+                width={108}
+                alt={name}
+              />
             </Link>
             <h2 className={utilStyles.headingLg}>
-              <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
+              <Link href="/" className={utilStyles.colorInherit}>
+                {name}
               </Link>
             </h2>
           </>
@@ -68,9 +66,7 @@ export default function Layout({ children, home }: Props) {
       <main>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Regresar al home</a>
-          </Link>
+          <Link href="/">← Regresar al home</Link>
         </div>
       )}
     </div>
