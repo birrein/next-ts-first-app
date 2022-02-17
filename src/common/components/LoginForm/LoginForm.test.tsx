@@ -1,5 +1,5 @@
 import { render, screen, cleanup } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/extend-expect';
 import LoginForm from '@common/components/LoginForm';
 
 describe('<LoginForm />', () => {
