@@ -1,24 +1,29 @@
 import { render, screen, cleanup } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import LoginForm from '@common/components/LoginForm';
 
 describe('<LoginForm />', () => {
   it('Form title render', () => {
     render(<LoginForm />);
-    screen.getByText('Iniciar sesión');
+    const loginTitle = screen.getByText('Iniciar sesión');
+    expect(loginTitle).toBeInTheDocument();
   });
 
   it('Form email input render', () => {
     render(<LoginForm />);
-    screen.getByLabelText(/Correo electrónico/);
+    const emailInput = screen.getByLabelText(/Correo electrónico/);
+    expect(emailInput).toBeInTheDocument();
   });
 
   it('Form password input render', () => {
     render(<LoginForm />);
-    screen.getByLabelText(/Contraseña/);
+    const passwordInput = screen.getByLabelText(/Contraseña/);
+    expect(passwordInput).toBeInTheDocument();
   });
 
   it('Render submit button', () => {
     render(<LoginForm />);
-    screen.getByRole('button', { name: 'Enviar' });
+    const submitButton = screen.getByRole('button', { name: 'Enviar' });
+    expect(submitButton).toBeInTheDocument();
   });
 });
